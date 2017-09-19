@@ -48,10 +48,10 @@ The code for this step is contained in the "1.1" code cell of the IPython notebo
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 vehicle
-![alt text](./vehicles/GTI_Far/image0000.png)
+![alt text](./output_images/image0000.png)
 
 no vehicle
-![alt text](./non-vehicles/GTI/image1.png)
+![alt text](./output_images/image1.png)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
