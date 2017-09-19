@@ -124,4 +124,4 @@ See code cell "Video pipeline" in the code.ipynb for the details.
 
 It seems the SVM classifier I trained does not work well with the white car, black car is ok, we can see this from the output video: at some point, we doesn't detect the white car. I think I need to keep tuning related parameters for the classifier, for example, try more other color spaces; or rich the trainning data...
 
-Tracking the most recent n frames help me filter out the false positive, but we still can encounter false positive( classifier not work well), I think we need other means to double check, maybe a radar?
+Tracking the most recent n frames help me filter out the false positive, but we still can encounter false positive(eg.classifier not work well), I think we need other means to double check, maybe a radar?
