@@ -1,3 +1,8 @@
+### FYI
+
+All the project code are located in code.ipynb, the final output video is project_video_output.mp4.
+
+
 ##Writeup Template
 ###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
@@ -42,7 +47,10 @@ The code for this step is contained in the "1.1" code cell of the IPython notebo
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
+vehicle
 ![alt text](./vehicles/GTI_Far/image0000.png)
+
+no vehicle
 ![alt text](./non-vehicles/GTI/image1.png)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
@@ -73,24 +81,31 @@ I trained a linear SVM, First I extract features for the vehicle cars and no-veh
 
 I decided to search random window positions at four different scales(160, 128, 96, 64) all over the image and came up with this (see code cell "1.4 Multi-scale sliding window"):
 
-![alt text]("./output_images/multi-scale-window.jpg")
+![alt text](./output_images/multi-scale-window.jpg)
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using HLS 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text](./output_images/hot_box_1.jpg) ![alt text](./output_images/heatmap_1.jpg)![alt text](./output_images/labeled_cars_1.jpg)
+![alt text](./output_images/hot_box_1.jpg) 
+![alt text](./output_images/heatmap_1.jpg)
+![alt text](./output_images/labeled_cars_1.jpg)
 
-![alt text](./output_images/hot_box_2.jpg) ![alt text](./output_images/heatmap_2.jpg)![alt text](./output_images/labeled_cars_1.jpg)
+![alt text](./output_images/hot_box_2.jpg) 
+![alt text](./output_images/heatmap_2.jpg)
+![alt text](./output_images/labeled_cars_1.jpg)
 
-![alt text](./output_images/hot_box_4.jpg) ![alt text](./output_images/heatmap_4.jpg)![alt text](./output_images/labeled_cars_4.jpg)
+![alt text](./output_images/hot_box_4.jpg) 
+![alt text](./output_images/heatmap_4.jpg)
+![alt text](./output_images/labeled_cars_4.jpg)
 
 ---
 
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-The final output video is "project_video_output.mp4" located in the same directory with this document.
+
+The final output video is "project_video_output.mp4" located in the same directory as this document.
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
