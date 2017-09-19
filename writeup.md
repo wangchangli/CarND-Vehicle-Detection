@@ -93,7 +93,7 @@ Ultimately I searched on two scales using HLS 3-channel HOG features plus spatia
 
 ![alt text](./output_images/hot_box_2.jpg) 
 ![alt text](./output_images/heatmap_2.jpg)
-![alt text](./output_images/labeled_cars_1.jpg)
+![alt text](./output_images/labeled_cars_2.jpg)
 
 ![alt text](./output_images/hot_box_4.jpg) 
 ![alt text](./output_images/heatmap_4.jpg)
