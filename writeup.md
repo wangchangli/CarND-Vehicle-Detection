@@ -97,19 +97,9 @@ The final output video is "project_video_output.mp4" located in the same directo
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+I track the latest 20 frames,  if in the 60% of frames we find a same box(if two box has percentage of overlap over 40% we take them as same box ), then I conclude that it is a car, otherwise false positive; Once I find a car,  I constructed bounding boxes by average all the detected boxes.
 
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
+See code cell "Video pipeline" in the code.ipynb for the details.
 
 ---
 
@@ -117,5 +107,6 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+It seems the SVM classifier I trained does not work well with the white car, black car is ok, we can see this from the output video: at some point, we doesn't detect the white car. I think I need to keep tuning related parameters for the classifier, for example, try more other color spaces; or rich the trainning data...
 
+Tracking the most recent n frames help me filter out the false positive, but we still can encounter false positive( classifier not work well), I think we need other means to double check, maybe a radar?
